@@ -1,3 +1,5 @@
+<h1>Статья</h1>
+
 <p>
   <strong>Заголовок:</strong>
   <%= @article.title %>
@@ -7,6 +9,36 @@
   <strong>Текст:</strong>
   <%= @article.text %>
 </p>
+
+<h2>Комментарии</h2>
+<% @article.comments.each do |comment| %>
+  <p>
+    <strong>Комментатор:</strong>
+    <%= comment.commenter %>
+  </p>
+ 
+  <p>
+    <strong>Комментарий:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+
+<h2>Добавить комментарий:</h2>
+<%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+
 <%= link_to 'Редактировать', edit_article_path(@article) %> |
 <%= link_to 'Все статьи', articles_path %>
 

@@ -3,7 +3,11 @@ ru:
   activerecord:
     models:
       article: "Статья"
+      comment: "Комментарий"
     attributes:
       article:
         title: "Заголовок"
-        text: "Текст"  
+        text: "Текст" 
+      comment:
+        commenter: "Комментатор"
+        body: "Комментарий" 
