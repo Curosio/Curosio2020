@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
 
+  http_basic_authenticate_with name: "mike", password: "mikhailov", except: [:index, :show]
+
   def index
     @articles = Article.all
   end
@@ -47,7 +49,7 @@ def destroy
  
   redirect_to articles_path
 end
-  
+
 
 	private
 	  def article_params
