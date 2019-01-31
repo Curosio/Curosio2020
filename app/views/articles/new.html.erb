@@ -1,32 +1,5 @@
-<%= form_with scope: :article, url: articles_path, local: true do |form| %>
+<h1>Новая статья</h1>
  
-  <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <p> Подкорректируйте форму (<%= pluralize(@article.errors.count, "ошибок") %>):
-        
-      </p>
-      <ul>
-        <% @article.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
- 
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
- 
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-  </p>
- 
-  <p>
-    <%= form.submit value: "Сохранить статью" %>
-  </p>
- 
-<% end %>
+<%= render 'form' %>
  
 <%= link_to 'Все статьи', articles_path %>
